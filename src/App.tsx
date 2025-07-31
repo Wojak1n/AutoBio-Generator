@@ -18,7 +18,11 @@ function App() {
     <ThemeProvider>
       <AuthProvider>
         <Router>
-          <div className="min-h-screen bg-gray-50">
+          <div className="min-h-screen bg-gray-50 dark:bg-gray-950 transition-colors duration-300 relative">
+            {/* Dark mode gradient overlay for extra depth */}
+            <div className="pointer-events-none fixed inset-0 z-0 hidden dark:block" aria-hidden="true">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-purple-900/30 to-gray-950/80 blur-2xl opacity-80"></div>
+            </div>
             <Routes>
               <Route path="/" element={<LandingPage />} />
               <Route path="/login" element={<Login />} />
